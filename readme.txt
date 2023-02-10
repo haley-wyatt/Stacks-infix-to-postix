@@ -1,11 +1,11 @@
 Name: Wyatt Haley
-Class: CS 302 - Data Structures
+Class: Data Structures
 File name: readme.txt
 
 This is a project from my data structures class at UNR. The point of the project is to design and implement a stack data structure by creating a program that takes an infix expression as an input and returns that expression in postfix form.
 
 Instructions to run code:
-    This code is written in c++ and will compile in c++ version 11
+    The makefile is set up to use GNU c++ compiler
     In bash terminal run the following commands:
         make
         ./executable
