@@ -1,8 +1,6 @@
 /*
 Name: Wyatt Haley
-Class: CS 302 w/ Erin Keith
-Date: 10/01/2022
-Programming Assignment 3
+Class: Data Structures
 File name: driver.cpp
 */
 
@@ -16,7 +14,6 @@ float calcPostfixValue(std::string postfixExp);
 
 int main(int argc, const char* argv[]){
     
-    //LinkedStack<char> operandStack;
     int menuChoice = 0;
     int choice = 0;
     std::string infixExp = "";
@@ -27,7 +24,6 @@ int main(int argc, const char* argv[]){
         menuChoice = getMenuChoice();
         switch (menuChoice){
             case 0:
-                //EXIT
                 break;
             case 1:
                 std::cout << "Please enter an infix expression:" << std::endl;
@@ -40,12 +36,11 @@ int main(int argc, const char* argv[]){
                 postfixExp = ""; // reset postfix expression
                 break;
             default:
-                //EXIT
                 break;  
         }
     } while (menuChoice != 0);
 
-    return 0; // main return
+    return 0;
 }
 
 // getMenuChoice displays the main menu and receives and returns the chosen option
@@ -102,7 +97,7 @@ std::string toPostfix(std::string infixExp){
             }
             operatorStack.push(infixExp[i]);
         }
-    } // end for loop
+    }
     while(!operatorStack.isEmpty()){ // pop remaining stack
         if(operatorStack.peek() == '('){
             operatorStack.pop();
@@ -120,19 +115,19 @@ std::string toPostfix(std::string infixExp){
 
 // calcPostfixValue takes a postfix expression and returns the result of that expression
 float calcPostfixValue(std::string postfixExp){
-    LinkedStack<double> resultStack; // create LinkedStack of type double
+    LinkedStack<double> resultStack;
 
     for(int i=0; i<postfixExp.length(); i++){ // iterate through the string that was passed in as argument
         if(postfixExp[i] >= '0' && postfixExp[i] <= '9'){ // 
             resultStack.push(postfixExp[i] - '0'); // push postfixExp[i] as int value, not character value
         }
         else{
-            float operand1 = resultStack.peek(); // retreive first operand
+            float operand1 = resultStack.peek();
             resultStack.pop();
-            float operand2 = resultStack.peek(); // retreive second operand
+            float operand2 = resultStack.peek();
             resultStack.pop();
 
-            switch (postfixExp[i]) { // perform arithmetic
+            switch (postfixExp[i]) {
                 case '+':
                     resultStack.push(operand2+operand1);
                     break;
@@ -150,5 +145,5 @@ float calcPostfixValue(std::string postfixExp){
             }
         }
     }
-    return resultStack.peek(); // return result of postfix expression
+    return resultStack.peek();
 }
