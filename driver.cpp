@@ -18,8 +18,7 @@ int main(int argc, const char* argv[]){
     int choice = 0;
     std::string infixExp = "";
     std::string postfixExp = "";
-    
-    // prompt menu for user
+
     do{
         menuChoice = getMenuChoice();
         switch (menuChoice){
@@ -117,7 +116,7 @@ std::string toPostfix(std::string infixExp){
 float calcPostfixValue(std::string postfixExp){
     LinkedStack<double> resultStack;
 
-    for(int i=0; i<postfixExp.length(); i++){ // iterate through the string that was passed in as argument
+    for(int i=0; i<postfixExp.length(); i++){
         if(postfixExp[i] >= '0' && postfixExp[i] <= '9'){ // 
             resultStack.push(postfixExp[i] - '0'); // push postfixExp[i] as int value, not character value
         }
