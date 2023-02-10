@@ -1,7 +1,5 @@
 #Name: Wyatt Haley
-#Class: CS 302 w/ Erin Keith
-#Date: 10/01/2022
-#Programming Assignment 3
+#Class: Data Structures
 #File name: makefile
 
 all: executable
